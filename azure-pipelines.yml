@@ -28,7 +28,7 @@ steps:
 - script: |
     curl -LJO https://downloads-demo.whitesourcesoftware.com/sast-cli/linux/wscli
     echo  WS SAST CLI downloaded successfully
-    wscli.exe --dir ./ --name=$(Build.Repository.Name)_$(Build.SourceBranchName) --baseline=true 
+    ./wscli.exe --dir ./ --name=$(Build.Repository.Name)_$(Build.SourceBranchName) --baseline=true 
   env:
     SAST_ORGANIZATION: $(ORGANIZATION)
     SASTCLI_TOKEN: $(CLI_TOKEN)
