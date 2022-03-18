@@ -1,0 +1,38 @@
+# WS SAST Scan
+
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+steps:
+- task: NuGetToolInstaller@1
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: '$(solution)'
+
+- task: VSBuild@1
+  inputs:
+    solution: '$(solution)'
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- script: |
+    curl -LJO https://downloads-demo.whitesourcesoftware.com/sast-cli/linux/wscli
+    echo  WS SAST CLI downloaded successfully
+    java -jar wss-unified-agent.jar -d "./dotnetcore-sample"
+    wscli --dir ./ --name=$(Build.Repository.Name)_$(Build.SourceBranchName) --baseline=true 
+  env:
+    SAST_ORGANIZATION: $(ORGANIZATION)
+    SASTCLI_TOKEN: $(CLI_TOKEN)
+    SAST_SERVER: https://sast-demo.whitesourcesoftware.com
+    SASTCLI_TARGET_APPLICATION: $(System.TeamProject)
+  displayName: 'WS SAST Scan'
