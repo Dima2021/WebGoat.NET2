@@ -35,5 +35,5 @@ steps:
     SAST_ORGANIZATION: $(ORGANIZATION)
     SASTCLI_TOKEN: $(CLI_TOKEN)
     SAST_SERVER: https://sast-demo.whitesourcesoftware.com
-    SASTCLI_TARGET_APPLICATION: $(System.TeamProject)
+    SASTCLI_TARGET_APPLICATION: DotNET-Demo
   displayName: 'WS SAST Scan'
