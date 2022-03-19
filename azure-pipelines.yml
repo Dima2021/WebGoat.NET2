@@ -28,8 +28,6 @@ steps:
 - script: |
     curl -LJO https://downloads-demo.whitesourcesoftware.com/sast-cli/windows/wscli.exe
     echo  WS SAST CLI downloaded successfully
-    echo $(Build.Repository.Name)_$(Build.SourceBranchName)
-    echo $(System.TeamProject)
     wscli.exe --dir ./ --name=$(Build.Repository.Name)_$(Build.SourceBranchName) --baseline=true 
   env:
     SAST_ORGANIZATION: $(ORGANIZATION)
