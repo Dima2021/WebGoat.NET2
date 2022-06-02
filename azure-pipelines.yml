@@ -8,9 +8,9 @@ pool:
 
 steps:
 - script: |
-    curl -LJO https://downloads-demo.whitesourcesoftware.com/sast-cli/windows/wscli.exe
+    curl -LJO https://downloads-sast.mend.io/sast-cli/linux/mendsastcli
     echo  WS SAST CLI downloaded successfully
-    wscli.exe --dir ./ --name=$(Build.Repository.Name)_$(Build.SourceBranchName) --baseline=true 
+    mendsastcli --dir ./ --name=$(Build.Repository.Name)$(Build.SourceBranchName) --app $(System.TeamProject)
   env:
     SAST_ORGANIZATION: $(ORGANIZATION)
     SASTCLI_TOKEN: $(CLI_TOKEN)
