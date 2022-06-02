@@ -14,6 +14,6 @@ steps:
   env:
     SAST_ORGANIZATION: $(ORGANIZATION)
     SASTCLI_TOKEN: $(CLI_TOKEN)
-    SAST_SERVER: https://sast-demo.whitesourcesoftware.com
+    SAST_SERVER: https://sast.whitesourcesoftware.com
     SASTCLI_TARGET_APPLICATION: DotNET-Demo
   displayName: 'WS SAST Scan'
