@@ -16,4 +16,5 @@ steps:
     SASTCLI_TOKEN: $(CLI_TOKEN)
     SAST_SERVER: https://sast.whitesourcesoftware.com
     SASTCLI_TARGET_APPLICATION: DotNET-Demo
+    SASTCLI_THRESHOLD_HIGH: 10
   displayName: 'WS SAST Scan'
