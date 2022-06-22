@@ -10,11 +10,10 @@ steps:
 - script: |
     curl -LJO https://downloads-sast.mend.io/sast-cli/windows/mendsastcli.exe
     echo  WS SAST CLI downloaded successfully
-    mendsastcli.exe --dir ./ --name=$(Build.Repository.Name)$(Build.SourceBranchName) --app $(System.TeamProject)
+    mendsastcli.exe --dir ./ --name=$(Build.Repository.Name)$(Build.SourceBranchName) --app $(System.TeamProject) --baseline
   env:
     SAST_ORGANIZATION: $(ORGANIZATION)
     SASTCLI_TOKEN: $(CLI_TOKEN)
     SAST_SERVER: https://sast.whitesourcesoftware.com
     SASTCLI_TARGET_APPLICATION: DotNET-Demo
-    SASTCLI_THRESHOLD_HIGH: 10
   displayName: 'WS SAST Scan'
