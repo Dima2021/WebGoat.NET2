@@ -1,0 +1,22 @@
+# WS SAST Scan
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: Bash@3
+  displayName: Run Mend SAST
+  inputs:
+    targetType: inline
+    script: >
+      # Write your commands here
+      pwd
+      ls -lrta
+      export SASTCLI_TOKEN="4b9805c2909e942d9afc75007b18ebe828f97e19bf7626392614b2b25a8f20db"
+      export SAST_ORGANIZATION="DimaGorbonos_Demo"
+      export SAST_SERVER=”https://sast-app.whitesourcesoftware.com/”
+      echo ' ***** Run SAST CLI ***** '
+      ./mendsastcli --dir ./ --name=$(Build.Repository.Name)$(Build.SourceBranchName) --app AZ$(System.TeamProject)
