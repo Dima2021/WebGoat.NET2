@@ -15,8 +15,8 @@ steps:
       # Write your commands here
       pwd
       ls -lrta
-      export SASTCLI_TOKEN="4b9805c2909e942d9afc75007b18ebe828f97e19bf7626392614b2b25a8f20db"
+      export SASTCLI_TOKEN="4414889bce8e70d822e4e1a2baeebb60d09042dd635fcb0a11027eee7eb1ca3f"
       export SAST_ORGANIZATION="DimaGorbonos_Demo"
       export SAST_SERVER=”https://sast-app.whitesourcesoftware.com/”
       echo ' ***** Run SAST CLI ***** '
-      mendsastcli --dir ./ --name=$(Build.Repository.Name)$(Build.SourceBranchName) --app AZ$(System.TeamProject)
+      mendsastcli --dir ./ --name $(Build.Repository.Name)$(Build.SourceBranchName) --app AZ$(System.TeamProject)
