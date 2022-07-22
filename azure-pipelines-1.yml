@@ -11,7 +11,7 @@ steps:
   displayName: Run Mend SAST
   inputs:
     targetType: inline
-    script: >
+    script: |
       # Write your commands here
       pwd
       ls -lrta
