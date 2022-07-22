@@ -15,8 +15,6 @@ steps:
       # Write your commands here
       curl -LJO https://downloads-sast.mend.io/sast-cli/windows/mendsastcli.exe
       echo  WS SAST CLI downloaded successfully
-      pwd
-      ls -lrta
       export SASTCLI_TOKEN="4414889bce8e70d822e4e1a2baeebb60d09042dd635fcb0a11027eee7eb1ca3f"
       export SAST_ORGANIZATION="DimaGorbonos_Demo"
       export SAST_SERVER=”https://sast-app.whitesourcesoftware.com/”
