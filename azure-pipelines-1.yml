@@ -19,4 +19,4 @@ steps:
       export SAST_ORGANIZATION="DimaGorbonos_Demo"
       export SAST_SERVER=”https://sast-app.whitesourcesoftware.com/”
       echo ' ***** Run SAST CLI ***** '
-      ./mendsastcli --dir ./ --name=$(Build.Repository.Name)$(Build.SourceBranchName) --app AZ$(System.TeamProject)
+      mendsastcli --dir ./ --name=$(Build.Repository.Name)$(Build.SourceBranchName) --app AZ$(System.TeamProject)
