@@ -8,12 +8,10 @@ pool:
 
 steps:
 - script: |
-    curl -LJO https://downloads-sast.mend.io/sast-cli/windows/mendsastcli.exe
+    curl https://downloads.mend.io/cli/windows_amd64/mend.exe -o C:\MendCLI\mend.exe
     echo  WS SAST CLI downloaded successfully
-    mendsastcli.exe --dir ./ --name=$(Build.Repository.Name)$(Build.SourceBranchName) --app $(System.TeamProject) --incr
+    mend sast -d ./ --app DotNET-Demo --name MyBranch
   env:
-    SAST_ORGANIZATION: $(ORGANIZATION)
-    SASTCLI_TOKEN: $(CLI_TOKEN)
-    SAST_SERVER: https://sast.whitesourcesoftware.com
-    SASTCLI_TARGET_APPLICATION: DotNET-Demo
+    MEND_SAST_SERVER_URL: https://sast.whitesourcesoftware.com
+    MEND_SAST_API_TOKEN: $(MEND_SAST_API)
   displayName: 'WS SAST Scan'
