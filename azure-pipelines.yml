@@ -10,7 +10,7 @@ steps:
 - script: |
     curl https://downloads.mend.io/cli/windows_amd64/mend.exe -o C:\MendCLI\mend.exe
     echo  WS SAST CLI downloaded successfully
-    mend sast -d ./ --app DotNET-Demo --name MyBranch
+    mend.exe sast -d ./ --app DotNET-Demo --name MyBranch
   env:
     MEND_SAST_SERVER_URL: https://sast.whitesourcesoftware.com
     MEND_SAST_API_TOKEN: $(MEND_SAST_API)
