@@ -8,8 +8,8 @@ pool:
 
 steps:
 - script: |
-    curl https://downloads.mend.io/cli/windows_amd64/mend.exe -o C:\MendCLI\mend.exe
-    echo  WS SAST CLI downloaded successfully
+    curl -LJO https://downloads.mend.io/cli/windows_amd64/mend.exe
+    echo  Mend CLI downloaded successfully
     mend.exe sast -d ./ --app DotNET-Demo --name MyBranch
   env:
     MEND_SAST_SERVER_URL: https://sast.whitesourcesoftware.com
