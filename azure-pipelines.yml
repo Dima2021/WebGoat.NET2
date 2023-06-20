@@ -8,7 +8,7 @@ pool:
 
 steps:
 - script: |
-    curl https://downloads.mend.io/cli/windows_amd64/mend.exe
+    mkdir C:\mend\cli && curl https://downloads.mend.io/cli/windows_amd64/mend.exe -o C:\mend\cli\mend.exe
     echo  Mend CLI downloaded successfully
     mend.exe sast -d ./ --app DotNET-Demo --name MyBranch
   env:
