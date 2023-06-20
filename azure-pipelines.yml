@@ -1,4 +1,4 @@
-# WS SAST Scan
+# Mend SAST Scan
 
 trigger:
 - master
@@ -15,4 +15,6 @@ steps:
     MEND_SAST_SERVER_URL: https://sast.mend.io/sast/
     MEND_SAST_API_TOKEN: $(MEND_SAST_API)
     MEND_SAST_ORGANIZATION: $(MEND_SAST_ORGANIZATION_UUID)
-  displayName: 'WS SAST Scan'
+  displayName: 'Mend SAST Scan'
+- publish: c:\users\VssAdministrator\.mend\logs
+  artifact: "Mend CLI Logs"
