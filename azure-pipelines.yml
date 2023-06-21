@@ -18,5 +18,5 @@ steps:
     MEND_SAST_API_TOKEN: $(MEND_SAST_API)
     MEND_SAST_ORGANIZATION: $(MEND_SAST_ORGANIZATION_UUID)
   displayName: 'Mend SAST Scan'
-- publish: c:\users\VssAdministrator\storage
+- publish: c:\users\VssAdministrator\.mend\storage
   artifact: "Mend CLI Logs"
