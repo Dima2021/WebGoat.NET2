@@ -10,8 +10,6 @@ steps:
 - script: |
     mkdir C:\mend\cli && curl https://downloads.mend.io/cli/windows_amd64/mend.exe -o C:\mend\cli\mend.exe
     echo  Mend CLI downloaded successfully
-    dir "c:\users\VssAdministrator"
-    echo  Mend CLI downloaded successfully 2
     C:\mend\cli\mend.exe sast -d ./ --app DotNET-Demo --name MyBranch
   env:
     MEND_SAST_SERVER_URL: https://sast.mend.io/sast/
